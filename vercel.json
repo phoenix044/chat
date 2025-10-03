@@ -2,17 +2,27 @@
   "version": 2,
   "builds": [
     {
-      "src": "railway_sync_server.py",
+      "src": "vercel_sync_server.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "railway_sync_server.py"
+      "src": "/health",
+      "dest": "vercel_sync_server.py"
+    },
+    {
+      "src": "/ws",
+      "dest": "vercel_sync_server.py"
+    },
+    {
+      "src": "/",
+      "dest": "vercel_sync_server.py"
     }
   ],
-  "env": {
-    "PORT": "8766"
+  "functions": {
+    "vercel_sync_server.py": {
+      "maxDuration": 30
+    }
   }
 }
