@@ -318,13 +318,9 @@ async def main():
         await server.stop_server()
         print("服务器已关闭")
 
-# 为了兼容不同的部署环境，添加这些变量
-app = None
-handler = None
-
+# 为了兼容不同的部署环境，创建正确的应用结构
 def create_app():
     """创建应用实例，用于某些部署平台"""
-    global app
     server = RailwaySyncServer()
     app = web.Application()
     app.router.add_get('/health', server.health_check)
@@ -334,6 +330,9 @@ def create_app():
 
 # 创建应用实例
 app = create_app()
+
+# 为了兼容某些部署平台，添加handler变量
+handler = None
 
 if __name__ == "__main__":
     asyncio.run(main())
