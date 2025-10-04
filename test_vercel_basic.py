@@ -58,9 +58,11 @@ def main():
     # 测试端点列表
     test_cases = [
         ("/", "根路径测试"),
-        ("/health", "健康检查测试"),
-        ("/test", "测试端点测试"),
-        ("/api", "API路径测试")
+        ("/api", "API路径测试"),
+        ("/api/health", "API健康检查测试"),
+        ("/api/test", "API测试端点测试"),
+        ("/health", "健康检查测试（备用）"),
+        ("/test", "测试端点测试（备用）")
     ]
     
     results = []
