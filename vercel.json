@@ -2,27 +2,30 @@
   "version": 2,
   "builds": [
     {
-      "src": "vercel_sync_server.py",
+      "src": "vercel_simple_server.py",
       "use": "@vercel/python",
       "config": {
         "maxLambdaSize": "50mb",
-        "runtime": "python3.9",
-        "buildCommand":"bash start.sh"
+        "runtime": "python3.9"
       }
     }
   ],
   "routes": [
     {
       "src": "/health",
-      "dest": "vercel_sync_server.py"
+      "dest": "vercel_simple_server.py"
     },
     {
       "src": "/ws",
-      "dest": "vercel_sync_server.py"
+      "dest": "vercel_simple_server.py"
+    },
+    {
+      "src": "/test",
+      "dest": "vercel_simple_server.py"
     },
     {
       "src": "/",
-      "dest": "vercel_sync_server.py"
+      "dest": "vercel_simple_server.py"
     }
   ]
 }

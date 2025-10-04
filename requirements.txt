@@ -1,1 +1,1 @@
-aiohttp==3.9.1
+# Vercel简化版不需要额外依赖，只使用Python标准库
